@@ -1,0 +1,30 @@
+﻿@model Sabores.Models.Usuarios
+<div class="mx-auto">
+    <div class="card text-center">
+        <div class="card-header">
+            <h3>Registrarme | <a asp-area="" asp-controller="Login" asp-action="Index">Iniciar sesión</a></h3>
+        </div>
+        <div class="card-body center-block text-center shadow-sm p-3 mb-5 bg-white rounded">
+            <div class="alert alert-warning registroUsuario">
+
+            </div>
+            <form asp-action="Registrar" id="Registrar">
+                <div asp-validation-summary="ModelOnly" class="text-danger"> </div>
+                <div class="form-group">
+                    <label asp-for="Nombre" class="control-label">Nombre completo</label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Clave" class="control-label">Clave de usuario</label>
+                    <input type="password" asp-for="Clave" class="form-control" />
+                    <span asp-validation-for="Clave" class="text-danger"></span>
+                </div>
+                <div class="form-group btnRegistrar">
+                    <button type="submit" class="btn btn-primary btn-block">Procesar registro</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
