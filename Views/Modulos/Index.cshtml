@@ -1,0 +1,15 @@
+﻿@using Sabores.Helper
+@using System.Security.Claims;
+@using System.Security.Principal;
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="well well-larg">
+        Usuario Autenticado:
+        <ul>
+            <li>@SessionHelper.GetNameIdentifier(User)</li>
+            <li>@SessionHelper.GetName(User)</li>
+            <li>@(((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Email).Value)</li>
+            <li>@SessionHelper.GetValue(User, "Dato")</li>
+        </ul>
+    </div>
+}

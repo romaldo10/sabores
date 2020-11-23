@@ -1,4 +1,6 @@
-﻿//Eventos de reistro
+﻿
+
+//Eventos de reistro
 $('.alert').hide();
 $(document).on('submit', '#Registrar', function (e) {
     e.preventDefault();
@@ -10,8 +12,7 @@ $(document).on('submit', '#Registrar', function (e) {
         url: this.action,
         data: $(this).serialize(),
         success: function (data) {
-            $('.alert').show();
-            $('.alert').text('Usuario registrado con éxito');
+           console.log(xhr.responseJSON.Message);
         },
         error: function (xhr, status) {
             $('.alert').show();
@@ -33,6 +34,8 @@ $(document).on('submit', '#Login', function (e) {
         url: this.action,
         data: $(this).serialize(),
         success: function (data) {
+            window.location = '/Home';
+            
         },
         error: function (xhr, status) {
             $('.alert').show();
@@ -40,6 +43,7 @@ $(document).on('submit', '#Login', function (e) {
         },
         complete: function () {
             $('#Login button[type=submit]').prop('disabled', false);
+
         }
     });
 });

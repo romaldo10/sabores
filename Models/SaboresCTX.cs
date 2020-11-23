@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Sabores.Models;
 
 namespace Sabores.Models
 {
@@ -20,5 +21,9 @@ namespace Sabores.Models
         public DbSet<Usuarios> Usuarios { get; set; }
         public DbSet<Roles> Roles { get; set; }
         public DbSet<UsuarioRol> UsuarioRol { get; set; }
+        public DbSet<Sabores.Models.Menus> Menus { get; set; }
+        public DbSet<Sabores.Models.Restaurantes> Restaurantes { get; set; }
+        public DbSet<Sabores.Models.Cursos> Cursos { get; set; }
+        public DbSet<Sabores.Models.Reservaciones> Reservaciones { get; set; }
     }
 }

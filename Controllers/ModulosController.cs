@@ -9,15 +9,21 @@ namespace Sabores.Controllers
 {     [Authorize]
     public class ModulosController : Controller
     {
-        [Authorize(Roles ="Cliente")]
-        public IActionResult Cliente()
+        [Authorize]
+        public IActionResult Index()
         {
-            return Content("<h1>Cliente</h1>");
+            return View();
         }
+        [Authorize]
+        public IActionResult Reservaciones()
+        {
+            return View();
+        }
+
         [Authorize(Roles = "Administrador")]
         public IActionResult Administrador()
         {
-            return Content("<h1>Cliente</h1>");
+            return View();
         }
     }
 }

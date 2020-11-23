@@ -48,27 +48,14 @@ namespace Sabores.Controllers
                     });
                 }
                 else
-                {
-                    
+                { 
                     if (HashHelper.CheckHash(Usuario.Clave, result.Clave, result.Sal))
                     {
-                        if (result.Roles.Count == 0)
-                        {
-                            var response = new JObject() {
-                            { "StatusCode", 403 },
-                            { "Message", ", el usuario no tiene permisos" }
-                        };
-                            return StatusCode(403, response);
-                        }
-                        //crear sesion
                         var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme, ClaimTypes.Name, ClaimTypes.Role);
                         identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, result.IdUsuario.ToString()));
                         identity.AddClaim(new Claim(ClaimTypes.Name, result.Nombre));
                         identity.AddClaim(new Claim(ClaimTypes.Email, "romaldobermudez@gmail.com"));
                         identity.AddClaim(new Claim("Dato", "Valor"));
-
-                        //Cargar roles a cookie
-
                         foreach (var Rol in result.Roles)
                         {
                             identity.AddClaim(new Claim(ClaimTypes.Role, Rol.Rol.Descripcion));
@@ -76,8 +63,8 @@ namespace Sabores.Controllers
                         var principal = new ClaimsPrincipal(identity);
                         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal,
                         new AuthenticationProperties { ExpiresUtc = DateTime.Now.AddDays(2), IsPersistent = true });
-                      
-                        return Redirect("/Modulos");
+
+                            return Ok(result);
                     }
                     else
                     {

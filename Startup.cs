@@ -41,7 +41,13 @@ namespace Sabores
                 options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            }).AddCookie(options => { options.LoginPath = "/Login"; });
+            }).AddCookie(options => { options.LoginPath = "/Login";
+                options.Events.OnRedirectToAccessDenied = context =>
+                {
+                    context.Response.Redirect("/Home");
+                    return Task.CompletedTask;
+                };
+            });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
