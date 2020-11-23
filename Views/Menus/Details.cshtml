@@ -3,8 +3,8 @@
 @{
     ViewData["Title"] = "Details";
 }
-
-<h2>Details</h2>
+<input class="btn btn-light" type="button" onclick="history.back()" name="volver atrás" value="volver atrás">
+<h2>Detalles del registro en menu</h2>
 
 <div>
     <h4>Menus</h4>
@@ -30,7 +30,4 @@
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.IdMenu">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -18,13 +19,17 @@ namespace Sabores.Controllers
             _context = context;
         }
 
-        // GET: Restaurantes
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Restaurantes.ToListAsync());
         }
-
-        // GET: Restaurantes/Details/5
+        [Authorize]
+        public async Task<IActionResult> Cliente()
+        {
+            return View(await _context.Restaurantes.ToListAsync());
+        }
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -42,15 +47,13 @@ namespace Sabores.Controllers
             return View(restaurantes);
         }
 
-        // GET: Restaurantes/Create
+        [Authorize(Roles = "Administrador")]
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Restaurantes/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdRestaurante,Nombre,Ubicacion,Mesas")] Restaurantes restaurantes)
@@ -64,7 +67,7 @@ namespace Sabores.Controllers
             return View(restaurantes);
         }
 
-        // GET: Restaurantes/Edit/5
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -80,9 +83,7 @@ namespace Sabores.Controllers
             return View(restaurantes);
         }
 
-        // POST: Restaurantes/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdRestaurante,Nombre,Ubicacion,Mesas")] Restaurantes restaurantes)
@@ -115,7 +116,7 @@ namespace Sabores.Controllers
             return View(restaurantes);
         }
 
-        // GET: Restaurantes/Delete/5
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -133,7 +134,7 @@ namespace Sabores.Controllers
             return View(restaurantes);
         }
 
-        // POST: Restaurantes/Delete/5
+        [Authorize(Roles = "Administrador")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

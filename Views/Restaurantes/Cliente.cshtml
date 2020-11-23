@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Sabores.Models.Restaurantes>
+
+@{
+    ViewData["Title"] = "Cliente";
+}
+
+<div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+
+            <li class="nav-item">
+                <a asp-controller="Restaurantes" asp-action="Cliente"><span class="glyphicon glyphicon-home"></span> Restaurantes</a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Menus" asp-action="Cliente"><span class="glyphicon glyphicon-book"></span> Menu</a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Cursos" asp-action="Cliente"><span class="glyphicon glyphicon-play"></span> Cursos</a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Reservaciones" asp-action="Cliente"><span class="glyphicon glyphicon-dashboard"></span> Reservaciones</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<h2>Restaurantes de sabores exóticos</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ubicacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mesas)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ubicacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mesas)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

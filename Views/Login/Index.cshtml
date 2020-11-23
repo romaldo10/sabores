@@ -1,20 +1,18 @@
 ﻿@model Sabores.Models.ViewModel.UsuarioVM
-<div class="mx-auto">
+<div class="col-md-6 col-md-offset-3" >
     <div class="card text-center">
         <div class="card-header">
-            <h3><a asp-area="" asp-controller="Home" asp-action="Registro">Registrarme</a> | Iniciar sesión</h3>
+            <h3> <b>Iniciar sesión</b> | <a asp-area="" asp-controller="Home" asp-action="Registro">Registrarme</a></h3>
         </div>
-        
         <div class="card-body center-block text-center">
             <div class="alert alert-warning registroUsuario"></div>
-                <form asp-action="Login" id="Login">
+                <form asp-action="Login" id="Login" class="auth-form">
                     <div asp-validation-summary="ModelOnly" class="text-danger"> </div>
                     <div class="form-group">
                         <label asp-for="Nombre" class="control-label">Nombre completo</label>
                         <input asp-for="Nombre" class="form-control" />
                         <span asp-validation-for="Nombre" class="text-danger"></span>
                     </div>
-
                     <div class="form-group">
                         <label asp-for="Clave" class="control-label">Clave de usuario</label>
                         <input asp-for="Clave" class="form-control" type="password" />

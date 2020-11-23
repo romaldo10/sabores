@@ -9,12 +9,12 @@ namespace Sabores.Controllers
 {     [Authorize]
     public class ModulosController : Controller
     {
-        [Authorize]
+   
         public IActionResult Index()
         {
             return View();
         }
-        [Authorize]
+     
         public IActionResult Reservaciones()
         {
             return View();

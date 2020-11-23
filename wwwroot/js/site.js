@@ -12,7 +12,7 @@ $(document).on('submit', '#Registrar', function (e) {
         url: this.action,
         data: $(this).serialize(),
         success: function (data) {
-           console.log(xhr.responseJSON.Message);
+            window.location = '/Home';
         },
         error: function (xhr, status) {
             $('.alert').show();

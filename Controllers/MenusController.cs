@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -18,13 +19,18 @@ namespace Sabores.Controllers
             _context = context;
         }
 
-        // GET: Menus
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Menus.ToListAsync());
         }
 
-        // GET: Menus/Details/5
+        [Authorize]
+        public async Task<IActionResult> Cliente()
+        {
+            return View(await _context.Menus.ToListAsync());
+        }
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -42,15 +48,13 @@ namespace Sabores.Controllers
             return View(menus);
         }
 
-        // GET: Menus/Create
+        [Authorize(Roles = "Administrador")]
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Menus/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdMenu,Descripcion,Categoria,Precio")] Menus menus)
@@ -63,8 +67,7 @@ namespace Sabores.Controllers
             }
             return View(menus);
         }
-
-        // GET: Menus/Edit/5
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -80,9 +83,7 @@ namespace Sabores.Controllers
             return View(menus);
         }
 
-        // POST: Menus/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdMenu,Descripcion,Categoria,Precio")] Menus menus)
@@ -115,7 +116,7 @@ namespace Sabores.Controllers
             return View(menus);
         }
 
-        // GET: Menus/Delete/5
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -133,7 +134,7 @@ namespace Sabores.Controllers
             return View(menus);
         }
 
-        // POST: Menus/Delete/5
+        [Authorize(Roles = "Administrador")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -143,7 +144,7 @@ namespace Sabores.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+        [Authorize(Roles = "Administrador")]
         private bool MenusExists(int id)
         {
             return _context.Menus.Any(e => e.IdMenu == id);
