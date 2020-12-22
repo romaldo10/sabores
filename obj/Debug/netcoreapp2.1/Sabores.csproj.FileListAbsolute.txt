@@ -18,7 +18,6 @@ C:\Users\pc1\source\repos\Sabores\Sabores\obj\Debug\netcoreapp2.1\Sabores.dll
 C:\Users\pc1\source\repos\Sabores\Sabores\obj\Debug\netcoreapp2.1\Sabores.pdb
 C:\Users\pc1\source\repos\Sabores\Sabores\obj\Debug\netcoreapp2.1\Sabores.genruntimeconfig.cache
 C:\Users\pc1\source\repos\Sabores\Sabores\obj\Debug\netcoreapp2.1\Sabores.csproj.CopyComplete
-C:\Users\pc1\source\repos\Sabores\Sabores\obj\Debug\netcoreapp2.1\Sabores.csproj.CoreCompileInputs.cache
 C:\Users\pc1\source\repos\Sabores\Sabores\obj\Debug\netcoreapp2.1\Sabores.TagHelpers.input.cache
 C:\Users\pc1\source\repos\Sabores\Sabores\obj\Debug\netcoreapp2.1\Sabores.TagHelpers.output.cache
 C:\Users\pc1\source\repos\Sabores\Sabores\obj\Debug\netcoreapp2.1\Sabores.RazorCoreGenerate.cache
@@ -64,3 +63,7 @@ C:\Users\pc1\source\repos\Sabores\Sabores\obj\Debug\netcoreapp2.1\Razor\Views\Re
 C:\Users\pc1\source\repos\Sabores\Sabores\obj\Debug\netcoreapp2.1\Razor\Views\Reservas\Details.cshtml.g.cs
 C:\Users\pc1\source\repos\Sabores\Sabores\obj\Debug\netcoreapp2.1\Razor\Views\Reservas\Edit.cshtml.g.cs
 C:\Users\pc1\source\repos\Sabores\Sabores\obj\Debug\netcoreapp2.1\Razor\Views\Reservas\Index.cshtml.g.cs
+C:\Users\pc1\source\repos\Sabores\Sabores\obj\Debug\netcoreapp2.1\Razor\Views\Reservas\Reporte.cshtml.g.cs
+C:\Users\pc1\source\repos\Sabores\Sabores\obj\Debug\netcoreapp2.1\Sabores.csproj.CoreCompileInputs.cache
+C:\Users\pc1\source\repos\Sabores\Sabores\obj\Debug\netcoreapp2.1\Razor\Views\Reservas\Cliente.cshtml.g.cs
+C:\Users\pc1\source\repos\Sabores\Sabores\obj\Debug\netcoreapp2.1\Razor\Views\Reservas\Reservas.cshtml.g.cs

@@ -68,7 +68,7 @@ using Sabores.Models;
             WriteLiteral("\r\n\r\n<div class=\"card text-center\">\r\n    <div class=\"card-header\">\r\n        <ul class=\"nav nav-tabs card-header-tabs\">\r\n\r\n            <li class=\"nav-item\">\r\n                ");
             EndContext();
             BeginContext(266, 137, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f0d718e53ea643f2a5ab9af0e82e7624", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0d9e1d6fff2d44dba2ae4d05d3781b24", async() => {
                 BeginContext(340, 59, true);
                 WriteLiteral("<span class=\"glyphicon glyphicon-home\"></span> Restaurantes");
                 EndContext();
@@ -93,7 +93,7 @@ using Sabores.Models;
             WriteLiteral("\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                ");
             EndContext();
             BeginContext(475, 122, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "75bb5a1378034cbba876aeed585ed3a0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5ef06b5b19c4e5c92ea769ed1e5505e", async() => {
                 BeginContext(542, 51, true);
                 WriteLiteral("<span class=\"glyphicon glyphicon-book\"></span> Menu");
                 EndContext();
@@ -118,7 +118,7 @@ using Sabores.Models;
             WriteLiteral("\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                ");
             EndContext();
             BeginContext(669, 125, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "98456a87b2614f1ca5d4be07f66a1cfc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "51f3e2161f94459fa8180e7613b80960", async() => {
                 BeginContext(737, 53, true);
                 WriteLiteral("<span class=\"glyphicon glyphicon-play\"></span> Cursos");
                 EndContext();
@@ -143,7 +143,7 @@ using Sabores.Models;
             WriteLiteral("\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                ");
             EndContext();
             BeginContext(866, 144, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff9d12dc8cf244888a9abb83de72ef51", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5a794219cc754234a60265935efcecd1", async() => {
                 BeginContext(941, 65, true);
                 WriteLiteral("<span class=\"glyphicon glyphicon-dashboard\"></span> Reservaciones");
                 EndContext();

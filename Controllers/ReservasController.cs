@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Rotativa.AspNetCore;
 using Sabores.Models;
 
 namespace Sabores.Controllers
@@ -18,10 +19,19 @@ namespace Sabores.Controllers
             _context = context;
         }
 
-        // GET: Reservas
+     
         public async Task<IActionResult> Index()
         {
             return View(await _context.Reservas.ToListAsync());
+        }
+        public async Task<IActionResult> Reservas()
+        {
+            return View(await _context.Reservas.ToListAsync());
+        }
+        public async Task<IActionResult> Reporte()
+        {
+            return new ViewAsPdf("Reporte", await _context.Reservas.ToListAsync())
+            {  };
         }
 
         // GET: Reservas/Details/5
@@ -48,12 +58,9 @@ namespace Sabores.Controllers
             return View();
         }
 
-        // POST: Reservas/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdReservacion,Restaurante,Actividad,TipoMesa,Disponibilidad,Cliente,Personas,Fecha")] Reservas reservas)
+        public async Task<IActionResult> Create([Bind("IdReservacion,Restaurante,Actividad,TipoMesa,Disponibilidad,Cliente,Personas,Fecha,Monto")] Reservas reservas)
         {
             if (ModelState.IsValid)
             {
@@ -80,12 +87,9 @@ namespace Sabores.Controllers
             return View(reservas);
         }
 
-        // POST: Reservas/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdReservacion,Restaurante,Actividad,TipoMesa,Disponibilidad,Cliente,Personas,Fecha")] Reservas reservas)
+        public async Task<IActionResult> Edit(int id, [Bind("IdReservacion,Restaurante,Actividad,TipoMesa,Disponibilidad,Cliente,Personas,Fecha,Monto")] Reservas reservas)
         {
             if (id != reservas.IdReservacion)
             {
@@ -115,6 +119,53 @@ namespace Sabores.Controllers
             return View(reservas);
         }
 
+        // GET: Reservas/Edit/5
+        public async Task<IActionResult> Cliente(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var reservas = await _context.Reservas.FindAsync(id);
+            if (reservas == null)
+            {
+                return NotFound();
+            }
+            return View(reservas);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Cliente(int id, [Bind("IdReservacion,Restaurante,Actividad,TipoMesa,Disponibilidad,Cliente,Personas,Fecha,Monto")] Reservas reservas)
+        {
+            if (id != reservas.IdReservacion)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(reservas);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ReservasExists(reservas.IdReservacion))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Reservas));
+            }
+            return View(reservas);
+        }
         // GET: Reservas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

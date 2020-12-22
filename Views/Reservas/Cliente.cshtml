@@ -1,0 +1,73 @@
+﻿@model Sabores.Models.Reservas
+@using Sabores.Helper
+@using System.Security.Claims;
+@using System.Security.Principal;
+@{
+    ViewData["Title"] = "Cliente";
+}
+
+<h4>Realizar reservación de mesa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Cliente">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdReservacion" />
+            <div class="form-group">
+                <label asp-for="Restaurante">Seleccione restaurante</label>
+                <select asp-for="Restaurante" class="form-control" id="Restaurante">
+                    <option>Alajuela</option>
+                    <option>Siquirres</option>
+                    <option>San Pedro</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Actividad">Seleccione el tipo de actividad</label>
+                <select asp-for="Actividad" class="form-control" id="TipoMesa">
+                    <option>Almorzar</option>
+                    <option>Cenar</option>
+                    <option>Fiesta</option>
+                    <option>Planeación de bodas</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoMesa">Seleccione el tipo de mesa</label>
+                <select asp-for="TipoMesa" class="form-control" id="TipoMesa">
+                    <option>Vista al jardín</option>
+                    <option>Segundo piso</option>
+                    <option>Adentro</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Disponibilidad" /> @Html.DisplayNameFor(model => model.Disponibilidad)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cliente" class="control-label"></label>
+                <input asp-for="Cliente" class="form-control" value="@SessionHelper.GetName(User)" readonly />
+                <span asp-validation-for="Cliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Personas" class="control-label"></label>
+                <input asp-for="Personas" class="form-control" />
+                <span asp-validation-for="Personas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fecha" class="control-label"></label>
+                <input asp-for="Fecha" class="form-control" type="datetime-local" />
+                <span asp-validation-for="Fecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Monto" class="control-label"></label>
+                <input asp-for="Monto" class="form-control" type="number" readonly/>
+                <span asp-validation-for="Monto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Procesar reservación" class="btn btn-info" />
+            </div>
+        </form>
+    </div>
+</div>

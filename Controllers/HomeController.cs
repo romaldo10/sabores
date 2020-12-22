@@ -30,7 +30,7 @@ namespace Sabores.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> Registro()
+        public IActionResult Registro()
         {
             return View();
         }

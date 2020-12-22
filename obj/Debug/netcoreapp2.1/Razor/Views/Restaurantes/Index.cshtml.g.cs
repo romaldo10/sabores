@@ -66,7 +66,7 @@ using Sabores.Models;
             WriteLiteral("<input class=\"btn btn-light\" type=\"button\" onclick=\"history.back()\" name=\"volver atrás\" value=\"volver atrás\">\r\n<h2>Gestion de restaurantes</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(248, 55, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2bb23bacca8e4cc19f4935cdd67ea5ea", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3908fe772edd42f9809696c8029a46d0", async() => {
                 BeginContext(271, 28, true);
                 WriteLiteral("Agregar un nuevo restaurante");
                 EndContext();
@@ -156,7 +156,7 @@ using Sabores.Models;
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(1095, 130, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3aebfc8f2b08447aa81ee83755c4ad69", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "05c4b41714724ddeb4250213360cbff4", async() => {
                 BeginContext(1151, 70, true);
                 WriteLiteral("<input type=\"button\" value=\"Actualizar\" class=\"btn btn-info btn-sm\" />");
                 EndContext();
@@ -191,7 +191,7 @@ using Sabores.Models;
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(1245, 71, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "39b60e3ee1814bbc9f062cd6624d841b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b2412640d39641ed86bba578dfe4188c", async() => {
                 BeginContext(1304, 8, true);
                 WriteLiteral("Detalles");
                 EndContext();
@@ -226,7 +226,7 @@ using Sabores.Models;
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(1336, 132, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d7ff4a04cb7a44348f93a7ceca097a7d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ba39ba6a1273437c82a0bade6d4be84e", async() => {
                 BeginContext(1394, 70, true);
                 WriteLiteral("<input type=\"button\" value=\"Eliminar\" class=\"btn btn-danger btn-sm\" />");
                 EndContext();

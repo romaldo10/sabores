@@ -21,6 +21,9 @@ namespace Sabores.Models
         public string Cliente { get; set; }
         [Required(ErrorMessage = "Digite la cantidad de personas")]
         public int Personas { get; set; }
+        [Required(ErrorMessage = "Seleccione fecha y hora")]
         public string Fecha { get; set; }
+        [Required(ErrorMessage = "Digite el monto del servicio")]
+        public int Monto { get; set; }
     }
 }

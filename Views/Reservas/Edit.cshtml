@@ -4,9 +4,7 @@
     ViewData["Title"] = "Edit";
 }
 
-<h2>Edit</h2>
-
-<h4>Reservas</h4>
+<h4>Actualizar registro para la reservacion de mesa</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,19 +12,29 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="IdReservacion" />
             <div class="form-group">
-                <label asp-for="Restaurante" class="control-label"></label>
-                <input asp-for="Restaurante" class="form-control" />
-                <span asp-validation-for="Restaurante" class="text-danger"></span>
+                <label asp-for="Restaurante">Seleccione restaurante</label>
+                <select asp-for="Restaurante" class="form-control" id="Restaurante">
+                    <option>Alajuela</option>
+                    <option>Siquirres</option>
+                    <option>San Pedro</option>
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="Actividad" class="control-label"></label>
-                <input asp-for="Actividad" class="form-control" />
-                <span asp-validation-for="Actividad" class="text-danger"></span>
+                <label asp-for="Actividad">Seleccione el tipo de actividad</label>
+                <select asp-for="Actividad" class="form-control" id="TipoMesa">
+                    <option>Almorzar</option>
+                    <option>Cenar</option>
+                    <option>Fiesta</option>
+                    <option>Planeación de bodas</option>
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="TipoMesa" class="control-label"></label>
-                <input asp-for="TipoMesa" class="form-control" />
-                <span asp-validation-for="TipoMesa" class="text-danger"></span>
+                <label asp-for="TipoMesa">Seleccione el tipo de mesa</label>
+                <select asp-for="TipoMesa" class="form-control" id="TipoMesa">
+                    <option>Vista al jardín</option>
+                    <option>Segundo piso</option>
+                    <option>Adentro</option>
+                </select>
             </div>
             <div class="form-group">
                 <div class="checkbox">
@@ -47,17 +55,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="Fecha" class="control-label"></label>
-                <input asp-for="Fecha" class="form-control" />
+                <input asp-for="Fecha" class="form-control" type="datetime-local" />
                 <span asp-validation-for="Fecha" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <label asp-for="Monto" class="control-label"></label>
+                <input asp-for="Monto" class="form-control" type="number" />
+                <span asp-validation-for="Monto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Procesar" class="btn btn-info" />
             </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
