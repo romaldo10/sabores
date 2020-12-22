@@ -20,7 +20,7 @@ namespace Sabores.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Gerente,Administrador")]
         public IActionResult Administrador()
         {
             return View();

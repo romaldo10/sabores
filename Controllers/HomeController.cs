@@ -26,7 +26,10 @@ namespace Sabores.Controllers
         {
             return View();
         }
-
+        public IActionResult Ayuda()
+        {
+            return View();
+        }
         public async Task<IActionResult> Registro()
         {
             return View();

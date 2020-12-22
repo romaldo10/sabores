@@ -24,6 +24,8 @@ namespace Sabores.Models
         public DbSet<Sabores.Models.Menus> Menus { get; set; }
         public DbSet<Sabores.Models.Restaurantes> Restaurantes { get; set; }
         public DbSet<Sabores.Models.Cursos> Cursos { get; set; }
-        public DbSet<Sabores.Models.Reservaciones> Reservaciones { get; set; }
+        public DbSet<Sabores.Models.Reservas> Reservas { get; set; }
+     
+    
     }
 }

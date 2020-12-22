@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Mesas\**" />
+    <Compile Remove="Views\Restaurantes\otra cosa\**" />
+    <Content Remove="Views\Mesas\**" />
+    <Content Remove="Views\Restaurantes\otra cosa\**" />
+    <EmbeddedResource Remove="Views\Mesas\**" />
+    <EmbeddedResource Remove="Views\Restaurantes\otra cosa\**" />
+    <None Remove="Views\Mesas\**" />
+    <None Remove="Views\Restaurantes\otra cosa\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore" Version="2.1.7" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.3" />

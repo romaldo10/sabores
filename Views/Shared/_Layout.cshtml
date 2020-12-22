@@ -42,7 +42,7 @@
                                 <li><a asp-controller="Login" asp-action="Index"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesión</a></li>
                                 <li><a asp-controller="Home" asp-action="Registro"><span class="glyphicon glyphicon-user"></span> Registrarme</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a>Acerca de</a></li>
+                                <li><a asp-controller="Home" asp-action="Ayuda"><span class="glyphicon glyphicon-book"></span> Ayuda</a></li>
                             </ul>
                         </li>
 
@@ -50,12 +50,14 @@
                     else
                     {
                         <li><a asp-controller="Modulos" asp-action="Reservaciones"><span class="glyphicon glyphicon-apple"></span> Servicios</a></li>
+                       
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Perfil</a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a asp-controller="Modulos" asp-action="Administrador">@SessionHelper.GetName(User)</a>
+                                    <a asp-controller="Modulos" asp-action="Administrador"><span class="glyphicon glyphicon-check"></span> @SessionHelper.GetName(User)</a>
                                 </li>
+                                 <li><a asp-controller="Home" asp-action="Ayuda"><span class="glyphicon glyphicon-book"></span> Ayuda</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li>
                                     <a asp-controller="Login" asp-action="Logout"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a>
@@ -67,14 +69,13 @@
             </div>
         </div>
     </nav>
-
     <br />
     <div class="container body-content ">
         @RenderBody()
     </div>
     <hr />
-    <footer class="text-center">
-        <p>&copy; 2020 - Sabores Exóticos</p>
+    <footer class="text-center">                  
+      <span>© 2020, Sabores exóticos | hecho con miel by <a href="https://cuspry.com"><b>Cuspry Inc.</b></a></span>                  
     </footer>
 
     <environment include="Development">

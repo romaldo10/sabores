@@ -4,34 +4,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Sabores.Models;
 
 namespace Sabores.Controllers
 {
-    public class ReservacionesController : Controller
+    public class CuentaController : Controller
     {
         private readonly SaboresCTX _context;
 
-        public ReservacionesController(SaboresCTX context)
+        public CuentaController(SaboresCTX context)
         {
             _context = context;
         }
 
-        [Authorize(Roles = "Administrador")]
+        // GET: Cuenta
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Reservaciones.ToListAsync());
-        }
-        [Authorize]
-        public async Task<IActionResult> Cliente()
-        {
-            return View(await _context.Reservaciones.ToListAsync());
+            return View(await _context.Usuarios.Include("Roles.Rol").ToListAsync());
         }
 
-
-        [Authorize(Roles = "Administrador")]
+        // GET: Cuenta/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -39,37 +32,39 @@ namespace Sabores.Controllers
                 return NotFound();
             }
 
-            var reservaciones = await _context.Reservaciones
-                .FirstOrDefaultAsync(m => m.IdReservacion == id);
-            if (reservaciones == null)
+            var usuarios = await _context.Usuarios
+                .FirstOrDefaultAsync(m => m.IdUsuario == id);
+            if (usuarios == null)
             {
                 return NotFound();
             }
 
-            return View(reservaciones);
+            return View(usuarios);
         }
 
-        [Authorize(Roles = "Administrador")]
+        // GET: Cuenta/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        [Authorize(Roles = "Administrador")]
+        // POST: Cuenta/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdReservacion,Reserva,Categoria,Restaurante,Mesas,Monto")] Reservaciones reservaciones)
+        public async Task<IActionResult> Create([Bind("IdUsuario,Nombre,Sal,Clave")] Usuarios usuarios)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(reservaciones);
+                _context.Add(usuarios);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(reservaciones);
+            return View(usuarios);
         }
 
-        [Authorize(Roles = "Administrador")]
+        // GET: Cuenta/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -77,20 +72,22 @@ namespace Sabores.Controllers
                 return NotFound();
             }
 
-            var reservaciones = await _context.Reservaciones.FindAsync(id);
-            if (reservaciones == null)
+            var usuarios = await _context.Usuarios.FindAsync(id);
+            if (usuarios == null)
             {
                 return NotFound();
             }
-            return View(reservaciones);
+            return View(usuarios);
         }
 
-        [Authorize(Roles = "Administrador")]
+        // POST: Cuenta/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdReservacion,Reserva,Categoria,Restaurante,Mesas,Monto")] Reservaciones reservaciones)
+        public async Task<IActionResult> Edit(int id, [Bind("IdUsuario,Nombre,Sal,Clave")] Usuarios usuarios)
         {
-            if (id != reservaciones.IdReservacion)
+            if (id != usuarios.IdUsuario)
             {
                 return NotFound();
             }
@@ -99,12 +96,12 @@ namespace Sabores.Controllers
             {
                 try
                 {
-                    _context.Update(reservaciones);
+                    _context.Update(usuarios);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ReservacionesExists(reservaciones.IdReservacion))
+                    if (!UsuariosExists(usuarios.IdUsuario))
                     {
                         return NotFound();
                     }
@@ -115,10 +112,10 @@ namespace Sabores.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(reservaciones);
+            return View(usuarios);
         }
 
-        [Authorize(Roles = "Administrador")]
+        // GET: Cuenta/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -126,30 +123,30 @@ namespace Sabores.Controllers
                 return NotFound();
             }
 
-            var reservaciones = await _context.Reservaciones
-                .FirstOrDefaultAsync(m => m.IdReservacion == id);
-            if (reservaciones == null)
+            var usuarios = await _context.Usuarios
+                .FirstOrDefaultAsync(m => m.IdUsuario == id);
+            if (usuarios == null)
             {
                 return NotFound();
             }
 
-            return View(reservaciones);
+            return View(usuarios);
         }
 
-        [Authorize(Roles = "Administrador")]
+        // POST: Cuenta/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var reservaciones = await _context.Reservaciones.FindAsync(id);
-            _context.Reservaciones.Remove(reservaciones);
+            var usuarios = await _context.Usuarios.FindAsync(id);
+            _context.Usuarios.Remove(usuarios);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ReservacionesExists(int id)
+        private bool UsuariosExists(int id)
         {
-            return _context.Reservaciones.Any(e => e.IdReservacion == id);
+            return _context.Usuarios.Any(e => e.IdUsuario == id);
         }
     }
 }
